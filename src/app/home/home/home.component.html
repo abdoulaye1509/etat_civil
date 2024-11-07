@@ -1,0 +1,79 @@
+<body class="sb-nav-fixed">
+  <!-- Navbar fixe en haut -->
+  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <a class="navbar-brand ps-3" href="#">GESTION ETATS CIVILS</a>
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle">
+      <i class="fas fa-bars"></i>
+    </button>    
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+        <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fas fa-user fa-fw"></i>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li><a class="dropdown-item" href="#">Paramètres</a></li>
+          <li><hr class="dropdown-divider" /></li>
+          <li class="clique" >
+            <a class="dropdown-item d-flex align-items-center">
+              <i class="bi bi-box-arrow-right"></i>
+              <span>Se déconnecter</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Layout principal avec Sidebar et Contenu -->
+  <div id="layoutSidenav">
+    <!-- Sidebar fixe à gauche -->
+    <div id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+        <ul class="sidebar-nav" id="sidebar-nav">
+          <li *ngFor="let one_menu of api.menu" class="nav-item">
+            <a class="nav-link collapsed" [routerLink]="[one_menu.route]" routerLinkActive="active">
+              <i class="bi large-icon" [class]="one_menu.icone"></i>
+              <span>{{one_menu.titre}}</span>
+            </a>
+            <ul *ngIf="one_menu.les_submenu.length > 0" class="nav-content collapse" id="components-nav-{{one_menu.id_menu}}">
+              <li *ngFor="let one_sub_menu of one_menu.les_submenu">
+                <a [routerLink]="[one_sub_menu.route]" routerLinkActive="active" class="nav-link">
+                  <i class="bi bi-circle large-icon" [class]="one_sub_menu.icone"></i>
+                  <span>{{one_sub_menu.titre}}</span>
+                </a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Contenu principal -->
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container">
+          <router-outlet></router-outlet>
+        </div>
+      </main>
+      <!-- Footer fixe en bas -->
+      <footer id="footer" class="py-4 bg-light mt-auto">
+        <div class="container-fluid px-4">
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Plateforme etat civil</div>
+            <div>
+              <a href="#">UAHB</a> &middot; <a href="#">Terms &amp; Conditions</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+</body>

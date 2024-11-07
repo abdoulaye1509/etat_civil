@@ -1,0 +1,598 @@
+{
+    "projectName": "etat_civil",
+    "decription": "Fichier de configuration de Taf",
+    "taf_base_url": "http:\/\/localhost\/taf-etatcivil\/",
+    "les_modules": [
+    {
+    "module": "home",
+    "les_tables": [
+    {
+    "table": "agent",
+    "description": [
+    "id_agent",
+    "prenom_agent",
+    "nom_agent",
+    "adresse_agent",
+    "tel",
+    "fonction",
+    "email",
+    "password",
+    "id_privilege"
+    ],
+    "table_descriptions": {
+    "table_name": "agent",
+    "cle_primaire": {
+    "Field": "id_agent",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    "les_based_table_name": [
+    "agent",
+    "privilege"
+    ],
+    "les_referenced_table": [
+    "privilege"
+    ],
+    "les_colonnes": [
+    {
+    "Field": "id_agent",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    {
+    "Field": "prenom_agent",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_agent",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "adresse_agent",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "tel",
+    "Type": "varchar(30)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "fonction",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "email",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "UNI",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "password",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "id_privilege",
+    "Type": "int(11)",
+    "Null": "YES",
+    "Key": "MUL",
+    "Default": null,
+    "Extra": "",
+    "explications": "cl\u00e9 \u00e9trang\u00e8re li\u00e9e \u00e0 la colonne id_privilege de la table privilege",
+    "table": {
+    "TABLE_NAME": "agent",
+    "COLUMN_NAME": "id_privilege",
+    "REFERENCED_TABLE_NAME": "privilege",
+    "REFERENCED_COLUMN_NAME": "id_privilege"
+    },
+    "table_existant": false,
+    "referenced_table": {
+    "table_name": "privilege",
+    "cle_primaire": {
+    "Field": "id_privilege",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    "les_based_table_name": [
+    "agent",
+    "privilege"
+    ],
+    "les_referenced_table": [],
+    "les_colonnes": [
+    {
+    "Field": "id_privilege",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    {
+    "Field": "nom_privilege",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "description",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    }
+    ]
+    }
+    }
+    ]
+    },
+    "les_types": [
+    "add",
+    "edit",
+    "list",
+    "details"
+    ]
+    },
+    {
+    "table": "deces",
+    "description": [
+    "id_deces",
+    "prenom_defunt",
+    "nom_defunt",
+    "adresse_defunt",
+    "date_deces",
+    "heure_deces",
+    "lieu_deces",
+    "created_at"
+    ],
+    "table_descriptions": {
+    "table_name": "deces",
+    "cle_primaire": {
+    "Field": "id_deces",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    "les_based_table_name": [
+    "deces"
+    ],
+    "les_referenced_table": [],
+    "les_colonnes": [
+    {
+    "Field": "id_deces",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    {
+    "Field": "prenom_defunt",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_defunt",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "adresse_defunt",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "date_deces",
+    "Type": "date",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "heure_deces",
+    "Type": "time",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "lieu_deces",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "created_at",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": "current_timestamp()",
+    "Extra": "",
+    "explications": ""
+    }
+    ]
+    },
+    "les_types": [
+    "add",
+    "edit",
+    "list",
+    "details"
+    ]
+    },
+    {
+    "table": "mariage",
+    "description": [
+    "id_mariage",
+    "nom_epoux",
+    "nom_epouse",
+    "adresse",
+    "date_mariage",
+    "statut",
+    "nom_temoin_epoux",
+    "nom_temoin_epouse",
+    "created_at"
+    ],
+    "table_descriptions": {
+    "table_name": "mariage",
+    "cle_primaire": {
+    "Field": "id_mariage",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    "les_based_table_name": [
+    "mariage"
+    ],
+    "les_referenced_table": [],
+    "les_colonnes": [
+    {
+    "Field": "id_mariage",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    {
+    "Field": "nom_epoux",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_epouse",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "adresse",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "date_mariage",
+    "Type": "date",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "statut",
+    "Type": "varchar(50)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_temoin_epoux",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_temoin_epouse",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "created_at",
+    "Type": "datetime",
+    "Null": "YES",
+    "Key": "",
+    "Default": "current_timestamp()",
+    "Extra": "",
+    "explications": ""
+    }
+    ]
+    },
+    "les_types": [
+    "add",
+    "edit",
+    "list",
+    "details"
+    ]
+    },
+    {
+    "table": "naissance",
+    "description": [
+    "id_naissance",
+    "prenom",
+    "nom",
+    "date_naissance",
+    "lieu_naissance",
+    "adresse",
+    "nom_pere",
+    "nom_mere"
+    ],
+    "table_descriptions": {
+    "table_name": "naissance",
+    "cle_primaire": {
+    "Field": "id_naissance",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    "les_based_table_name": [
+    "naissance"
+    ],
+    "les_referenced_table": [],
+    "les_colonnes": [
+    {
+    "Field": "id_naissance",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    {
+    "Field": "prenom",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "date_naissance",
+    "Type": "date",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "lieu_naissance",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "adresse",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_pere",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "nom_mere",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    }
+    ]
+    },
+    "les_types": [
+    "add",
+    "edit",
+    "list",
+    "details"
+    ]
+    },
+    {
+    "table": "privilege",
+    "description": [
+    "id_privilege",
+    "nom_privilege",
+    "description"
+    ],
+    "table_descriptions": {
+    "table_name": "privilege",
+    "cle_primaire": {
+    "Field": "id_privilege",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    "les_based_table_name": [
+    "privilege"
+    ],
+    "les_referenced_table": [],
+    "les_colonnes": [
+    {
+    "Field": "id_privilege",
+    "Type": "int(11)",
+    "Null": "NO",
+    "Key": "PRI",
+    "Default": null,
+    "Extra": "auto_increment",
+    "explications": "cl\u00e9 primaire"
+    },
+    {
+    "Field": "nom_privilege",
+    "Type": "varchar(255)",
+    "Null": "NO",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    },
+    {
+    "Field": "description",
+    "Type": "varchar(255)",
+    "Null": "YES",
+    "Key": "",
+    "Default": null,
+    "Extra": "",
+    "explications": ""
+    }
+    ]
+    },
+    "les_types": [
+    "add",
+    "edit",
+    "list",
+    "details"
+    ]
+    }
+    ]
+    },
+    {
+    "module": "public",
+    "les_tables": [
+    {
+    "table": "login",
+    "description": [
+    "login",
+    "pwd"
+    ],
+    "les_types": [
+    "login"
+    ]
+    }
+    ]
+    }
+    ]
+    }

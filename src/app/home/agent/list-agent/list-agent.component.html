@@ -1,0 +1,78 @@
+<!-- entête -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Les Agents - {{les_agents.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_agent">Ajouter Agent</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">N°ID</th>
+        <th scope="col">Prénom de l'agent</th>
+        <th scope="col">Nom de l'agent</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">Téléphone</th>
+        <th scope="col">Fonction</th>
+        <th scope="col">Email</th>
+        <!-- <th scope="col">Modifier</th>
+        <th scope="col">Supprimer</th> -->
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_agent of les_agents">
+        <td>{{'A-2024/00'+one_agent.id_agent}}</td>
+        <td>{{one_agent.prenom_agent}}</td>
+        <td>{{one_agent.nom_agent}}</td>
+        <td>{{one_agent.adresse_agent}}</td>
+        <td>{{one_agent.tel}}</td>
+        <td>{{one_agent.fonction}}</td>
+        <td>{{one_agent.email}}</td>
+        <td>
+          <i class="bi bi-pencil-square text-warning mx-2" role="button" 
+             (click)="on_click_edit(one_agent)" data-bs-toggle="modal"
+             data-bs-target="#modal_edit_agent"></i>
+        
+          <i class="bi bi-trash text-danger" role="button" 
+             [ngClass]="{'disabled': loading_delete_agent}" 
+             (click)="!loading_delete_agent && delete_agent({id_agent: one_agent.id_agent})"></i>
+        </td>
+        
+        
+        
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ajout -->
+<div class="modal fade" id="modal_add_agent" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+          <h1 class="modal-title fs-5 text-white">Enregistrer un Agent</h1> <!-- Ajout de la classe text-white -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <app-add-agent (cb_add_agent)="after_add($event)"></app-add-agent>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- modification -->
+<div class="modal fade" id="modal_edit_agent" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+        <h1 class="modal-title fs-5 text-white">Modifier l'Agent</h1> <!-- Ajout de la classe text-white -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-agent *ngIf="agent_to_edit" (cb_edit_agent)="after_edit($event)" [agent_to_edit]="agent_to_edit"></app-edit-agent>
+      </div>
+    </div>
+  </div>
+</div>
+  

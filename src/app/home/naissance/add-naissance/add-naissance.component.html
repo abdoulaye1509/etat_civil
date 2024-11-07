@@ -1,0 +1,67 @@
+
+<form  [formGroup]="reactiveForm_add_naissance " (ngSubmit)="onSubmit_add_naissance ()" #form_add_naissance ="ngForm" class="row">
+  
+<!-- prenom field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Prénom de l'enfant</label>
+          <input class="form-control" type="text"  formControlName="prenom"  placeholder="prenom"  [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"/>
+          <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+          <div *ngIf="f.prenom.errors.required"> prenom est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Nom de l'enfant</label>
+          <input class="form-control" type="text"  formControlName="nom"  placeholder="nom"  [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"/>
+          <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+          <div *ngIf="f.nom.errors.required"> nom est obligatoire </div>
+          </div>
+          </div>  
+<!-- date_naissance field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Date de naissance</label>
+          <input class="form-control" type="date"  formControlName="date_naissance"  placeholder="date naissance"  [ngClass]="{ 'is-invalid': submitted && f.date_naissance.errors }"/>
+          <div *ngIf="submitted && f.date_naissance.errors" class="invalid-feedback">
+          <div *ngIf="f.date_naissance.errors.required"> date_naissance est obligatoire </div>
+          </div>
+          </div>  
+<!-- lieu_naissance field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Lieu de naissance</label>
+          <input class="form-control" type="text"  formControlName="lieu_naissance"  placeholder="lieu naissance"  [ngClass]="{ 'is-invalid': submitted && f.lieu_naissance.errors }"/>
+          <div *ngIf="submitted && f.lieu_naissance.errors" class="invalid-feedback">
+          <div *ngIf="f.lieu_naissance.errors.required"> lieunaissance est obligatoire </div>
+          </div>
+          </div>  
+<!-- adresse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Adresse</label>
+          <input class="form-control" type="text"  formControlName="adresse"  placeholder="adresse"  [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }"/>
+          <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse.errors.required"> adresse est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_pere field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Prénom du père</label>
+          <input class="form-control" type="text"  formControlName="nom_pere"  placeholder="prenom pere"  [ngClass]="{ 'is-invalid': submitted && f.nom_pere.errors }"/>
+          <div *ngIf="submitted && f.nom_pere.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_pere.errors.required"> prenom est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_mere field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Prénom et Nom de la mère</label>
+          <input class="form-control" type="text"  formControlName="nom_mere"  placeholder="nom de la mere"  [ngClass]="{ 'is-invalid': submitted && f.nom_mere.errors }"/>
+          <div *ngIf="submitted && f.nom_mere.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_mere.errors.required"> nom_mere est obligatoire </div>
+          </div>
+          </div>  
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_naissance "
+        (click)="form_add_naissance .ngSubmit.emit()">{{loading_add_naissance ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_add_naissance ()">Vider</button>
+</div>

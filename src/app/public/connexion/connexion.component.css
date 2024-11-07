@@ -1,0 +1,7 @@
+.bg-pink {
+    background-color: #FFC0CB; /* Couleur rose */
+    color: #fff; /* Couleur du texte en blanc pour une meilleure lisibilité */
+    padding: 20px; /* Optionnel : ajout d'un peu de rembourrage */
+    border-radius: 0.5rem; /* Optionnel : arrondir les bords */
+  }
+  

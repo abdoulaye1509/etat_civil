@@ -1,0 +1,12 @@
+.modal-header-custom {
+    background-color: #007bff; /* Remplacez par votre couleur de navbar */
+    color: white; /* Texte en blanc pour un bon contraste */
+  }
+  .modal-title-custom {
+    color: white; /* Définit la couleur du texte en blanc */
+  }
+  .disabled {
+    pointer-events: none; /* Désactive les clics */
+    opacity: 0.5; /* Rend l'icône visuellement désactivée */
+  }
+  

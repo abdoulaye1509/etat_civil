@@ -1,0 +1,56 @@
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-6">
+      <div class="card p-5">
+        <div class="card-body bg-primary">
+          <h1 class="text-center mb-4 text-white">Connexion</h1>
+          <hr>
+          <form [formGroup]="reactiveForm_login_login" (ngSubmit)="onSubmit_login_login()" #form_login_login="ngForm" class="php-email-form">
+            <div class="mb-3">
+              <label for="email" class="form-label text-white">Email</label>
+              <input type="email" class="form-control" formControlName="login" id="email" placeholder="Entrez votre email">
+            </div>
+            <div class="form-group col-md-12">
+              <label for="name">Mot de passe</label>
+              <div class="input-group">
+                <input [type]="passwordType" class="form-control" formControlName="pwd">
+                <div class="input-group-append">
+                  <button type="button" class="btn btn-outline-secondary" (click)="passwordToogle()">
+                    <i [ngClass]="passwordShown ? 'fa fa-eye-slash' : 'fa fa-eye'"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary w-100" [disabled]="loading_login_login">
+                {{loading_login_login ? "En cours ..." : "Valider"}}
+              </button>
+            </div>
+          </form>
+          <div class="mt-4 text-center text-white">
+            <p>Pas encore de compte !</p>
+            <p>Veuillez contacter un administrateur pour vous creer un compte</p>
+            <!-- <a href="#" data-bs-toggle="modal" data-bs-target="#modal_add_cours">Créer un compte</a> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Inscription -->
+<div class="modal fade" id="modal_add_cours" tabindex="-1" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" data-bs-theme="dark">
+        <h5 class="modal-title">INSCRIPTION</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Formulaire d'inscription ou autre contenu -->
+        <p>Formulaire d'inscription ici...</p>
+      </div>
+    </div>
+  </div>
+</div>

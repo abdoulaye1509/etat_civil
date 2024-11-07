@@ -1,0 +1,83 @@
+<!-- entete -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Les Mariages - {{les_mariages.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_mariage">Ajouter Mariage</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">N°Cert</th>
+        <th scope="col">Nom du Mari</th>
+        <th scope="col">Nom de la Femme</th>
+        <th scope="col">Adresse </th>
+        <th scope="col">Date du mariage</th>
+        <th scope="col">statut</th>
+        <th scope="col">Nom Témoin Mari</th>
+        <th scope="col">Nom témoin Femme</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_mariage of les_mariages">
+        <td>{{'  00'+one_mariage.id_mariage}}</td>
+        <td>{{one_mariage.nom_epoux}}</td>
+        <td>{{one_mariage.nom_epouse}}</td>
+        <td>{{one_mariage.adresse}}</td>
+        <td>{{one_mariage.date_mariage}}</td>
+        <td>{{one_mariage.statut}}</td>
+        <td>{{one_mariage.nom_temoin_epoux}}</td>
+        <td>{{one_mariage.nom_temoin_epouse}}</td>
+        <td>
+          <div class="dropdown">
+            <button [disabled]="loading_delete_mariage" type="button" class="btn p-0 dropdown-toggle hide-arrow"
+              data-bs-toggle="dropdown">{{loading_delete_mariage?"en cours ...":"actions"}}</button>
+            <div class="dropdown-menu">
+              <a (click)="on_click_edit(one_mariage)" class="dropdown-item" data-bs-toggle="modal"
+                data-bs-target="#modal_edit_mariage">
+                <i class="bx bx-edit-alt me-1"></i>
+                Modifier
+              </a>
+              <a class="dropdown-item" href="javascript:void(0);"
+                (click)=delete_mariage({id_mariage:one_mariage.id_mariage})><i
+                  class="bx bx-trash me-1"></i>Supprimer</a>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ajout -->
+<div class="modal fade" id="modal_add_mariage" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+        <h1 class="modal-title fs-5 text-white">Enregistrer un Mariage</h1> <!-- Ajout de la classe text-white -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-mariage (cb_add_mariage)="after_add($event)"></app-add-mariage>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modification -->
+<div class="modal fade" id="modal_edit_mariage" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+        <h1 class="modal-title fs-5 text-white">Modifier Décès</h1> <!-- Ajout de la classe text-white -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+          (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-mariage *ngIf="mariage_to_edit" (cb_edit_mariage)="after_edit($event)"
+          [mariage_to_edit]="mariage_to_edit"></app-edit-mariage>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+
+<form  [formGroup]="reactiveForm_add_deces " (ngSubmit)="onSubmit_add_deces ()" #form_add_deces ="ngForm" class="row">
+  
+<!-- prenom_defunt field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Prénom défunt</label>
+          <input class="form-control" type="text"  formControlName="prenom_defunt"  placeholder="prenom defunt"  [ngClass]="{ 'is-invalid': submitted && f.prenom_defunt.errors }"/>
+          <div *ngIf="submitted && f.prenom_defunt.errors" class="invalid-feedback">
+          <div *ngIf="f.prenom_defunt.errors.required"> prenom_defunt est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_defunt field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Nom défunt</label>
+          <input class="form-control" type="text"  formControlName="nom_defunt"  placeholder="nom defunt"  [ngClass]="{ 'is-invalid': submitted && f.nom_defunt.errors }"/>
+          <div *ngIf="submitted && f.nom_defunt.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_defunt.errors.required"> nom_defunt est obligatoire </div>
+          </div>
+          </div>  
+<!-- adresse_defunt field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Adresse défunt</label>
+          <input class="form-control" type="text"  formControlName="adresse_defunt"  placeholder="adresse_defunt"  [ngClass]="{ 'is-invalid': submitted && f.adresse_defunt.errors }"/>
+          <div *ngIf="submitted && f.adresse_defunt.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse_defunt.errors.required"> adresse_defunt est obligatoire </div>
+          </div>
+          </div>  
+<!-- date_deces field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Date décès</label>
+          <input class="form-control" type="date"  formControlName="date_deces"  placeholder="date_deces"  [ngClass]="{ 'is-invalid': submitted && f.date_deces.errors }"/>
+          <div *ngIf="submitted && f.date_deces.errors" class="invalid-feedback">
+          <div *ngIf="f.date_deces.errors.required"> date_deces est obligatoire </div>
+          </div>
+          </div>  
+<!-- heure_deces field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Heure de décès</label>
+          <input class="form-control" type="time"  formControlName="heure_deces"  placeholder="heure_deces"  [ngClass]="{ 'is-invalid': submitted && f.heure_deces.errors }"/>
+          <div *ngIf="submitted && f.heure_deces.errors" class="invalid-feedback">
+          <div *ngIf="f.heure_deces.errors.required"> heure_deces est obligatoire </div>
+          </div>
+          </div>  
+<!-- lieu_deces field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Lieu décès</label>
+          <input class="form-control" type="text"  formControlName="lieu_deces"  placeholder="lieu_deces"  [ngClass]="{ 'is-invalid': submitted && f.lieu_deces.errors }"/>
+          <div *ngIf="submitted && f.lieu_deces.errors" class="invalid-feedback">
+          <div *ngIf="f.lieu_deces.errors.required"> lieu_deces est obligatoire </div>
+          </div>
+          </div>  
+
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_deces "
+        (click)="form_add_deces .ngSubmit.emit()">{{loading_add_deces ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_add_deces ()">Vider</button>
+</div>

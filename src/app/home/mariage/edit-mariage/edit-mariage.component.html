@@ -1,0 +1,75 @@
+
+<form  [formGroup]="reactiveForm_edit_mariage " (ngSubmit)="onSubmit_edit_mariage ()" #form_edit_mariage ="ngForm" class="row">
+  
+<!-- nom_epoux field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_epoux</label>
+          <input class="form-control" type="text"  formControlName="nom_epoux"  placeholder="nom_epoux"  [ngClass]="{ 'is-invalid': submitted && f.nom_epoux.errors }"/>
+          <div *ngIf="submitted && f.nom_epoux.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_epoux.errors.required"> nom_epoux est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_epouse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_epouse</label>
+          <input class="form-control" type="text"  formControlName="nom_epouse"  placeholder="nom_epouse"  [ngClass]="{ 'is-invalid': submitted && f.nom_epouse.errors }"/>
+          <div *ngIf="submitted && f.nom_epouse.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_epouse.errors.required"> nom_epouse est obligatoire </div>
+          </div>
+          </div>  
+<!-- adresse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >adresse</label>
+          <input class="form-control" type="text"  formControlName="adresse"  placeholder="adresse"  [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }"/>
+          <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse.errors.required"> adresse est obligatoire </div>
+          </div>
+          </div>  
+<!-- date_mariage field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >date_mariage</label>
+          <input class="form-control" type="text"  formControlName="date_mariage"  placeholder="date_mariage"  [ngClass]="{ 'is-invalid': submitted && f.date_mariage.errors }"/>
+          <div *ngIf="submitted && f.date_mariage.errors" class="invalid-feedback">
+          <div *ngIf="f.date_mariage.errors.required"> date_mariage est obligatoire </div>
+          </div>
+          </div>  
+<!-- statut field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >statut</label>
+          <input class="form-control" type="text"  formControlName="statut"  placeholder="statut"  [ngClass]="{ 'is-invalid': submitted && f.statut.errors }"/>
+          <div *ngIf="submitted && f.statut.errors" class="invalid-feedback">
+          <div *ngIf="f.statut.errors.required"> statut est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_temoin_epoux field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_temoin_epoux</label>
+          <input class="form-control" type="text"  formControlName="nom_temoin_epoux"  placeholder="nom_temoin_epoux"  [ngClass]="{ 'is-invalid': submitted && f.nom_temoin_epoux.errors }"/>
+          <div *ngIf="submitted && f.nom_temoin_epoux.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_temoin_epoux.errors.required"> nom_temoin_epoux est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_temoin_epouse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_temoin_epouse</label>
+          <input class="form-control" type="text"  formControlName="nom_temoin_epouse"  placeholder="nom_temoin_epouse"  [ngClass]="{ 'is-invalid': submitted && f.nom_temoin_epouse.errors }"/>
+          <div *ngIf="submitted && f.nom_temoin_epouse.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_temoin_epouse.errors.required"> nom_temoin_epouse est obligatoire </div>
+          </div>
+          </div>  
+<!-- created_at field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >created_at</label>
+          <input class="form-control" type="text"  formControlName="created_at"  placeholder="created_at"  [ngClass]="{ 'is-invalid': submitted && f.created_at.errors }"/>
+          <div *ngIf="submitted && f.created_at.errors" class="invalid-feedback">
+          <div *ngIf="f.created_at.errors.required"> created_at est obligatoire </div>
+          </div>
+          </div>  
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_edit_mariage "
+        (click)="form_edit_mariage .ngSubmit.emit()">{{loading_edit_mariage ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_edit_mariage ()">Vider</button>
+</div>

@@ -1,0 +1,84 @@
+/* Navbar fixe en haut */
+.sb-topnav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Sidebar fixe à gauche, masquable */
+#layoutSidenav_nav {
+  position: fixed;
+  top: 56px; /* Ajusté pour laisser de la place à la navbar */
+  left: 0;
+  width: 250px;
+  height: calc(100% - 56px); /* Hauteur du sidebar */
+  background-color: #f8f9fa; /* Couleur de fond du sidebar */
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+#layoutSidenav_nav.closed {
+  width: 0;
+  overflow: hidden;
+}
+
+/* Contenu principal décalé à droite du sidebar */
+#layoutSidenav_content {
+  margin-left: 250px; /* Espace réservé pour le sidebar */
+  padding-top: 56px; /* Espace pour la navbar en haut */
+  transition: all 0.3s ease;
+}
+
+#layoutSidenav_content.expanded {
+  margin-left: 0; /* Contenu plein écran quand le sidebar est fermé */
+}
+
+/* Footer fixe en bas */
+#footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+/* Styles pour les icônes et la navigation */
+.large-icon {
+  font-size: 1.5em;
+}
+
+/* Espacement entre les éléments du menu dans le sidebar */
+.sidebar-nav .nav-item {
+  margin-bottom: 15px; /* Ajustez cette valeur selon vos besoins */
+}
+
+.sidebar-nav .nav-link {
+  padding: 10px 15px; /* Ajoute du remplissage autour des liens */
+  border-radius: 5px; /* Arrondir légèrement les coins des liens */
+  transition: background-color 0.2s; /* Effet de transition pour l'arrière-plan */
+}
+
+/* Effet au survol */
+.sidebar-nav .nav-link:hover {
+  background-color: #e2e6ea; /* Changez la couleur d'arrière-plan lors du survol */
+}
+
+/* Styles pour la classe active */
+.active {
+  color: #4154f1 !important; /* Couleur du texte pour l'élément actif */
+  background: #f6f9ff !important; /* Couleur d'arrière-plan pour l'élément actif */
+}
+/* Style pour le bouton toggle */
+#sidebarToggle {
+  color: white; /* Change la couleur du texte en blanc */
+}
+
+#sidebarToggle:hover {
+  color: #e0e0e0; /* Change la couleur au survol pour un effet visuel */
+}
+
+/* Optionnel : si vous souhaitez un fond différent pour le bouton */
+#sidebarToggle {
+  background-color: transparent; /* Fond transparent pour garder l'apparence légère */
+  border: none; /* Supprime la bordure */
+}

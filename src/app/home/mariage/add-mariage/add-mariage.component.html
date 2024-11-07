@@ -1,0 +1,68 @@
+
+<form  [formGroup]="reactiveForm_add_mariage " (ngSubmit)="onSubmit_add_mariage ()" #form_add_mariage ="ngForm" class="row">
+  
+<!-- nom_epoux field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Prénom & Nom de  l'époux</label>
+          <input class="form-control" type="text"  formControlName="nom_epoux"  placeholder="nom_epoux"  [ngClass]="{ 'is-invalid': submitted && f.nom_epoux.errors }"/>
+          <div *ngIf="submitted && f.nom_epoux.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_epoux.errors.required"> nom_epoux est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_epouse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Prénom & Nom de  l'épouse</label>
+          <input class="form-control" type="text"  formControlName="nom_epouse"  placeholder="nom_epouse"  [ngClass]="{ 'is-invalid': submitted && f.nom_epouse.errors }"/>
+          <div *ngIf="submitted && f.nom_epouse.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_epouse.errors.required"> nom_epouse est obligatoire </div>
+          </div>
+          </div>  
+<!-- adresse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Adresse du couple</label>
+          <input class="form-control" type="text"  formControlName="adresse"  placeholder="adresse"  [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }"/>
+          <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+          <div *ngIf="f.adresse.errors.required"> adresse est obligatoire </div>
+          </div>
+          </div>  
+<!-- date_mariage field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Date de  mariage</label>
+          <input class="form-control" type="date"  formControlName="date_mariage"  placeholder="date_mariage"  [ngClass]="{ 'is-invalid': submitted && f.date_mariage.errors }"/>
+          <div *ngIf="submitted && f.date_mariage.errors" class="invalid-feedback">
+          <div *ngIf="f.date_mariage.errors.required"> date_mariage est obligatoire </div>
+          </div>
+          </div>  
+<!-- statut field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Statut </label>
+          <input class="form-control" type="text"  formControlName="statut"  placeholder="Monogamie ou Polygamie"  [ngClass]="{ 'is-invalid': submitted && f.statut.errors }"/>
+          <div *ngIf="submitted && f.statut.errors" class="invalid-feedback">
+          <div *ngIf="f.statut.errors.required"> statut est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_temoin_epoux field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Nom du témoin du Mari  </label>
+          <input class="form-control" type="text"  formControlName="nom_temoin_epoux"  placeholder="nom_temoin_epoux"  [ngClass]="{ 'is-invalid': submitted && f.nom_temoin_epoux.errors }"/>
+          <div *ngIf="submitted && f.nom_temoin_epoux.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_temoin_epoux.errors.required"> nom_temoin_epoux est obligatoire </div>
+          </div>
+          </div>  
+<!-- nom_temoin_epouse field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >Nom du témoin de la Femme</label>
+          <input class="form-control" type="text"  formControlName="nom_temoin_epouse"  placeholder="nom_temoin_epouse"  [ngClass]="{ 'is-invalid': submitted && f.nom_temoin_epouse.errors }"/>
+          <div *ngIf="submitted && f.nom_temoin_epouse.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_temoin_epouse.errors.required"> nom_temoin_epouse est obligatoire </div>
+          </div>
+          </div>  
+
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_mariage "
+        (click)="form_add_mariage .ngSubmit.emit()">{{loading_add_mariage ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_add_mariage ()">Vider</button>
+</div>

@@ -1,0 +1,81 @@
+<!-- entete -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Les Naissances  - {{les_naissances.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_naissance">Ajouter Naissance</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">N°Registre</th>
+        <th scope="col">Prénom Enfant</th>
+        <th scope="col">Nom Enfant</th>
+        <th scope="col">Date naissance</th>
+        <th scope="col">Lieu naissance</th>
+        <th scope="col">Nom du Père</th>
+        <th scope="col">Nom de la Mère</th>
+        <th scope="col">Adresse</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_naissance of les_naissances">
+        <td>{{'  00'+one_naissance.id_naissance}}</td>
+        <td>{{one_naissance.prenom}}</td>
+        <td>{{one_naissance.nom}}</td>
+        <td>{{ api.format_date(one_naissance.date_naissance).full }}</td>
+        <td>{{one_naissance.lieu_naissance}}</td>
+        <td>{{one_naissance.nom_pere}}</td>
+        <td>{{one_naissance.nom_mere}}</td>
+          <td>{{one_naissance.adresse}}</td>
+<td>
+  <div class="dropdown">
+    <button [disabled]="loading_delete_naissance" type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">{{loading_delete_naissance?"en cours ...":"actions"}}</button>
+    <div class="dropdown-menu">
+      <a (click)="on_click_edit(one_naissance)" class="dropdown-item" data-bs-toggle="modal"
+        data-bs-target="#modal_edit_naissance">
+        <i class="bx bx-edit-alt me-1"></i>
+        Modifier
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);" (click)=delete_naissance({id_naissance:one_naissance.id_naissance})><i class="bx bx-trash me-1"></i>Supprimer</a>
+    </div>
+  </div>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ajout -->
+<div class="modal fade" id="modal_add_naissance" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+        <h1 class="modal-title fs-5 text-white">Ajouter Naissance</h1> <!-- Ajout de la classe text-white -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <app-add-naissance (cb_add_naissance)="after_add($event)"></app-add-naissance>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- modification -->
+<div class="modal fade" id="modal_edit_naissance" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+        <h1 class="modal-title fs-5 text-white">Modifier Naissance</h1> <!-- Ajout de la classe text-white -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-naissance *ngIf="naissance_to_edit" (cb_edit_naissance)="after_edit($event)" [naissance_to_edit]="naissance_to_edit"></app-edit-naissance>
+      </div>
+    </div>
+  </div>
+</div>
+  

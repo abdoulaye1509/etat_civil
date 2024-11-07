@@ -1,0 +1,27 @@
+
+<form  [formGroup]="reactiveForm_edit_privilege " (ngSubmit)="onSubmit_edit_privilege ()" #form_edit_privilege ="ngForm" class="row">
+  
+<!-- nom_privilege field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >nom_privilege</label>
+          <input class="form-control" type="text"  formControlName="nom_privilege"  placeholder="nom_privilege"  [ngClass]="{ 'is-invalid': submitted && f.nom_privilege.errors }"/>
+          <div *ngIf="submitted && f.nom_privilege.errors" class="invalid-feedback">
+          <div *ngIf="f.nom_privilege.errors.required"> nom_privilege est obligatoire </div>
+          </div>
+          </div>  
+<!-- description field avec un control de validite -->
+          <div class="form-group col-sm-6">
+          <label >description</label>
+          <input class="form-control" type="text"  formControlName="description"  placeholder="description"  [ngClass]="{ 'is-invalid': submitted && f.description.errors }"/>
+          <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+          <div *ngIf="f.description.errors.required"> description est obligatoire </div>
+          </div>
+          </div>  
+</form>
+<!-- vous pouvez valider votre formulaire n'importe ou -->
+
+<div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_edit_privilege "
+        (click)="form_edit_privilege .ngSubmit.emit()">{{loading_edit_privilege ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_edit_privilege ()">Vider</button>
+</div>

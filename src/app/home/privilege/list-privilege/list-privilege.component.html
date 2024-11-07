@@ -1,0 +1,67 @@
+<!-- entete -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Les Privileges  - {{les_privileges.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_privilege">Ajouter Privilege</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">id_privilege</th>
+<th scope="col">nom_privilege</th>
+<th scope="col">description</th><th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_privilege of les_privileges">
+        <td>{{one_privilege.id_privilege}}</td>
+<td>{{one_privilege.nom_privilege}}</td>
+<td>{{one_privilege.description}}</td><td>
+  <div class="dropdown">
+    <button [disabled]="loading_delete_privilege" type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">{{loading_delete_privilege?"en cours ...":"actions"}}</button>
+    <div class="dropdown-menu">
+      <a (click)="on_click_edit(one_privilege)" class="dropdown-item" data-bs-toggle="modal"
+        data-bs-target="#modal_edit_privilege">
+        <i class="bx bx-edit-alt me-1"></i>
+        Modifier
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);" (click)=delete_privilege({id_privilege:one_privilege.id_privilege})><i class="bx bx-trash me-1"></i>Supprimer</a>
+    </div>
+  </div>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ajout -->
+<div class="modal fade" id="modal_add_privilege" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+          <div class="modal-header " data-bs-theme="dark">
+              <h1 class="modal-title fs-5">Ajouter Privilege</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <app-add-privilege (cb_add_privilege)="after_add($event)"></app-add-privilege>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- modification -->
+<div class="modal fade" id="modal_edit_privilege" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header" data-bs-theme="dark">
+        <h1 class="modal-title fs-5">Modifier Privilege</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-privilege *ngIf="privilege_to_edit" (cb_edit_privilege)="after_edit($event)" [privilege_to_edit]="privilege_to_edit"></app-edit-privilege>
+      </div>
+    </div>
+  </div>
+</div>
+  

@@ -1,0 +1,77 @@
+<!-- entete -->
+<div class="d-flex align-items-center justify-content-between">
+  <div class="fs-1">Liste des décès  - {{les_decess.length}}</div>
+  <div class="d-flex">
+    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_add_deces">Ajouter Deces</button>
+  </div>
+</div>
+<!-- list -->
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">N°Cert</th>
+        <th scope="col">Prénom défunt</th>
+        <th scope="col">Nom défunt</th>
+        <th scope="col">Adresse défunt</th>
+        <th scope="col">Date décès</th>
+        <th scope="col">Heure décès</th>
+        <th scope="col">Lieu décès</th>
+        <th scope="col">actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let one_deces of les_decess">
+        <td>{{'  00'+one_deces.id_deces}}</td>
+        <td>{{one_deces.prenom_defunt}}</td>
+        <td>{{one_deces.nom_defunt}}</td>
+        <td>{{one_deces.adresse_defunt}}</td>
+        <td>{{one_deces.date_deces}}</td>
+        <td>{{one_deces.heure_deces}}</td>
+        <td>{{one_deces.lieu_deces}}</td>
+        <td>
+  <div class="dropdown">
+    <button [disabled]="loading_delete_deces" type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">{{loading_delete_deces?"en cours ...":"actions"}}</button>
+    <div class="dropdown-menu">
+      <a (click)="on_click_edit(one_deces)" class="dropdown-item" data-bs-toggle="modal"
+        data-bs-target="#modal_edit_deces">
+        <i class="bx bx-edit-alt me-1"></i>
+        Modifier
+      </a>
+      <a class="dropdown-item" href="javascript:void(0);" (click)=delete_deces({id_deces:one_deces.id_deces})><i class="bx bx-trash me-1"></i>Supprimer</a>
+    </div>
+  </div>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<!-- ajout -->
+<div class="modal fade" id="modal_add_deces" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+          <h1 class="modal-title fs-5 text-white">Enregistrer un décès</h1> <!-- Ajout de la classe text-white -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <app-add-deces (cb_add_deces)="after_add($event)"></app-add-deces>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- modification -->
+<div class="modal fade" id="modal_edit_deces" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+        <h1 class="modal-title fs-5 text-white">Modifier Décès</h1> <!-- Ajout de la classe text-white -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
+      </div>
+      <div class="modal-body">
+        <app-edit-deces *ngIf="deces_to_edit" (cb_edit_deces)="after_edit($event)" [deces_to_edit]="deces_to_edit"></app-edit-deces>
+      </div>
+    </div>
+  </div>
+</div>
+  
