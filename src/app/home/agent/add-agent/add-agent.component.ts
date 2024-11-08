@@ -5,11 +5,11 @@ import { ApiService } from '../../../service/api/api.service';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-add-agent',
-  standalone:true,
-  imports:[CommonModule,ReactiveFormsModule,FormsModule,],
+  // standalone:true,
+  // imports:[CommonModule,ReactiveFormsModule,FormsModule,],
   templateUrl: './add-agent.component.html',
   styleUrls: ['./add-agent.component.css'],
-   schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajoutez ceci seulement si vous utilisez des Web Components
+  //  schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajoutez ceci seulement si vous utilisez des Web Components
 
 })
 export class AddAgentComponent {

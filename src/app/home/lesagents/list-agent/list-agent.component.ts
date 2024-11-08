@@ -1,14 +1,13 @@
-import { Component, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApiService } from '../../../service/api/api.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 @Component({
   selector: 'app-list-agent',
-  // standalone:true,
-  // imports:[CommonModule,ReactiveFormsModule,FormsModule,],
+   standalone:true,
+   imports:[CommonModule,ReactiveFormsModule,FormsModule],
   templateUrl: './list-agent.component.html',
   styleUrls: ['./list-agent.component.css'],
-  // schemas: [CUSTOM_ELEMENTS_SCHEMA], // Ajoutez ceci seulement si vous utilisez des Web Components
 })
 export class ListAgentComponent {
   loading_get_agent = false

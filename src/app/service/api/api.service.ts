@@ -87,7 +87,7 @@ export class ApiService {
       privileges: [1],
       icone: "bi-person-fill", // Icône pour Agents
       titre: "Agents",
-      route: "agent",
+      route: "les_agents",
       les_submenu: []
     }
   ];

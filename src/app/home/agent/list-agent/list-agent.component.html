@@ -35,9 +35,9 @@
              (click)="on_click_edit(one_agent)" data-bs-toggle="modal"
              data-bs-target="#modal_edit_agent"></i>
         
-          <i class="bi bi-trash text-danger" role="button" 
+          <!-- <i class="bi bi-trash text-danger" role="button" 
              [ngClass]="{'disabled': loading_delete_agent}" 
-             (click)="!loading_delete_agent && delete_agent({id_agent: one_agent.id_agent})"></i>
+             (click)="!loading_delete_agent && delete_agent({id_agent: one_agent.id_agent})"></i> -->
         </td>
         
         
@@ -47,12 +47,12 @@
   </table>
 </div>
 
-<!-- ajout -->
+<!-- ajout 
 <div class="modal fade" id="modal_add_agent" data-bs-backdrop="static">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
-        <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
-          <h1 class="modal-title fs-5 text-white">Enregistrer un Agent</h1> <!-- Ajout de la classe text-white -->
+        <div class="modal-header bg-primary">
+          <h1 class="modal-title fs-5 text-white">Enregistrer un Agent</h1> 
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -60,7 +60,22 @@
           </div>
       </div>
   </div>
+</div>-->
+<!-- ajout -->
+<div class="modal fade" id="modal_add_agent" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header bg-primary"> <!-- Vous pouvez garder bg-primary ou remplacer par une classe personnalisée -->
+          <h1 class="modal-title fs-5 text-white">Enregistrer un Agent</h1> <!-- Ajout de la classe text-white -->
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              <!-- <app-add-agent (cb_add_agent)="after_add($event)"></app-add-agent> -->
+          </div>
+      </div>
+  </div>
 </div>
+
 <!-- modification -->
 <div class="modal fade" id="modal_edit_agent" data-bs-backdrop="static">
   <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
@@ -70,7 +85,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="on_close_modal_edit()"></button>
       </div>
       <div class="modal-body">
-        <app-edit-agent *ngIf="agent_to_edit" (cb_edit_agent)="after_edit($event)" [agent_to_edit]="agent_to_edit"></app-edit-agent>
+        <!-- <app-edit-agent *ngIf="agent_to_edit" (cb_edit_agent)="after_edit($event)" [agent_to_edit]="agent_to_edit"></app-edit-agent> -->
       </div>
     </div>
   </div>

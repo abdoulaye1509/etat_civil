@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
   import { CommonModule } from '@angular/common';
   
   import { HomeRoutingModule } from './home-routing.module';
-  import { ReactiveFormsModule } from '@angular/forms';
+  import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { EditAgentComponent } from './agent/edit-agent/edit-agent.component';
 import { AddDecesComponent } from './deces/add-deces/add-deces.component';
@@ -18,11 +18,13 @@ import { AddPrivilegeComponent } from './privilege/add-privilege/add-privilege.c
 import { EditPrivilegeComponent } from './privilege/edit-privilege/edit-privilege.component';
 import { ListPrivilegeComponent } from './privilege/list-privilege/list-privilege.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AddAgentComponent } from './agent/add-agent/add-agent.component';
 
   
   @NgModule({
     declarations: [
     // HomeComponent,
+    AddAgentComponent,
     EditAgentComponent,
     AddDecesComponent,
     EditDecesComponent,
@@ -40,7 +42,10 @@ import { HttpClientModule } from '@angular/common/http';
     imports: [
       CommonModule,
       HomeRoutingModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      FormsModule,
+      HttpClientModule
+      
     ]
   })
   export class HomeModule { }

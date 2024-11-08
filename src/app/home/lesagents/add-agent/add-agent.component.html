@@ -1,0 +1,77 @@
+<form  [formGroup]="reactiveForm_add_agent " (ngSubmit)="onSubmit_add_agent ()" #form_add_agent ="ngForm" class="row">
+
+    <!-- champs prenom_agent avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >prenom_agent</label>
+    <input class="form-control" type="text"  formControlName="prenom_agent"  placeholder="prenom_agent"  [ngClass]="{ 'is-invalid': submitted && f.prenom_agent.errors }"/>
+    <div *ngIf="submitted && f.prenom_agent.errors" class="invalid-feedback">
+    <div *ngIf="f.prenom_agent.errors.required"> prenom_agent est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs nom_agent avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >nom_agent</label>
+    <input class="form-control" type="text"  formControlName="nom_agent"  placeholder="nom_agent"  [ngClass]="{ 'is-invalid': submitted && f.nom_agent.errors }"/>
+    <div *ngIf="submitted && f.nom_agent.errors" class="invalid-feedback">
+    <div *ngIf="f.nom_agent.errors.required"> nom_agent est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs adresse_agent avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >adresse_agent</label>
+    <input class="form-control" type="text"  formControlName="adresse_agent"  placeholder="adresse_agent"  [ngClass]="{ 'is-invalid': submitted && f.adresse_agent.errors }"/>
+    <div *ngIf="submitted && f.adresse_agent.errors" class="invalid-feedback">
+    <div *ngIf="f.adresse_agent.errors.required"> adresse_agent est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs tel avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >tel</label>
+    <input class="form-control" type="text"  formControlName="tel"  placeholder="tel"  [ngClass]="{ 'is-invalid': submitted && f.tel.errors }"/>
+    <div *ngIf="submitted && f.tel.errors" class="invalid-feedback">
+    <div *ngIf="f.tel.errors.required"> tel est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs fonction avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >fonction</label>
+    <input class="form-control" type="text"  formControlName="fonction"  placeholder="fonction"  [ngClass]="{ 'is-invalid': submitted && f.fonction.errors }"/>
+    <div *ngIf="submitted && f.fonction.errors" class="invalid-feedback">
+    <div *ngIf="f.fonction.errors.required"> fonction est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs email avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >email</label>
+    <input class="form-control" type="text"  formControlName="email"  placeholder="email"  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"/>
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+    <div *ngIf="f.email.errors.required"> email est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs password avec une gestion de la validité -->
+    <div class="form-group col-sm-6">
+    <label >password</label>
+    <input class="form-control" type="text"  formControlName="password"  placeholder="password"  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"/>
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+    <div *ngIf="f.password.errors.required"> password est obligatoire </div>
+    </div>
+    </div>
+    <!-- champs id_privilege avec un control de validite : clé étrangère liée à la colonne id_privilege de la table privilege -->
+    <div class="form-group col-sm-6">
+    <label >privilege</label>
+    <select [ngClass]="{ 'is-invalid': submitted && f.id_privilege.errors }" class="form-select" formControlName="id_privilege">
+    <option value="">Sélectionnez un(e) privilege</option>
+    <option [value]="one_privilege.id_privilege" *ngFor="let one_privilege of form_details.les_privileges">{{"privilege N°"+one_privilege.id_privilege}}</option>
+    </select>
+    <div *ngIf="submitted && f.id_privilege.errors" class="invalid-feedback">
+    <div *ngIf="f.id_privilege.errors.required">ce champ est obligatoire</div>
+    </div>
+    </div>
+    </form>
+    <!-- vous pouvez valider votre formulaire n\'importe ou -->
+    
+    <div class="text-center m-2">
+    <button type="button" class="btn btn-primary m-2" [disabled]="loading_add_agent "
+    (click)="form_add_agent .ngSubmit.emit()">{{loading_add_agent ?"En cours ...":"Valider"}}</button>
+    <button class="btn btn-secondary m-2" type="reset" (click)="onReset_add_agent ()">Vider</button>
+    </div>
